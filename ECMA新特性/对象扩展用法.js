@@ -21,5 +21,4 @@
 	console.log("copy: ",copy);
 	console.log("obj===copy: ",obj===copy);
 	console.groupEnd();
-	
 }
