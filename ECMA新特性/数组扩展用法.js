@@ -201,7 +201,16 @@
 		console.groupEnd();
 		
 		/**
-		 * Array.prototype.concat()
+		 * Array.prototype.join()
+		 * @description 连接所有数组元素组成一个字符串
+		 * @param 
+		 */
+		console.group('Array.prototype.join()');
+		
+		console.groupEnd();
+		
+		/**
+		 * Array.prototype.join()
 		 */
 		console.group('访问方法');
 		
