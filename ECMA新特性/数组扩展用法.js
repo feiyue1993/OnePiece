@@ -156,3 +156,58 @@
 	console.groupEnd();
 	
 }
+
+/**
+ * 数组实例属性和方法
+ */
+{
+	/* 数组实例属性 */
+	console.group('数组实例属性');
+		
+		/**
+		 * Array.prototype.constructor
+		 * 所有数组实例都继承的属性
+		 */
+		console.group('Array.prototype.constructor');
+			var arr = [];
+			console.log("arr.__proto__.constructor: ",arr.__proto__.constructor);
+		console.groupEnd();
+		
+		
+		/**
+		 * Array.prototype.length
+		 * 因为Array.prototype也是个数组,所以它有length属性,这个值为零,因为是个空数组
+		 */
+		console.group('Array.prototype.length');
+			
+		console.groupEnd();
+		
+	console.groupEnd();
+	
+	/* 数组实例访问方法 */
+	// 以下方法不会改变调用它们的对象的值,只会返回一个新数组或者期望值
+	console.group('数组实例访问方法');
+	
+		/**
+		 * Array.prototype.concat()
+		 * @description 返回一个由当前数组和其它若干个数组或者若干个非数组值组合而成的新数组。
+		 * @param 数组或值
+		 * @return 合并后的新数组
+		 */
+		console.group('Array.prototype.concat()');
+			var alpha = ['a', 'b', 'c'];
+			var numeric = [1, 2, 3];
+			console.log("alpha.concat(numeric, 4, 5): ",alpha.concat(numeric, 4, 5));
+		console.groupEnd();
+		
+		/**
+		 * Array.prototype.concat()
+		 */
+		console.group('访问方法');
+		
+		console.groupEnd();
+		
+	
+	console.groupEnd();
+	
+}
