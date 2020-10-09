@@ -151,6 +151,7 @@
 	console.group('Array.of()');
 		console.log("Array.of(7): ",Array.of(7));
 		console.log("Array.of(...[1,2,3], 4, 5): ",Array.of(...[1,2,3],4,5));
+		console.log("Array.of([1,2,3], 4, 5): ",Array.of([1,2,3],4,5));
 	console.groupEnd();
 	
 	console.groupEnd();
@@ -158,7 +159,7 @@
 }
 
 /**
- * 数组实例属性和方法
+ * 数组实例属性
  */
 {
 	/* 数组实例属性 */
@@ -183,10 +184,87 @@
 		console.groupEnd();
 		
 	console.groupEnd();
+}
+
+/**
+ * 数组实例方法-修改器方法
+ * 调用对象自身的值
+ */
+{
+	/**
+	 * Array.prototype.copyWithin(target, start, end)
+	 * 将数组一段元素序列拷贝到另一段元素序列上,覆盖原有的值
+	 * @param {target} 	从哪个位置开始赋值
+	 * @param {start} 	复制序列的开始位置
+	 * @param {end}		复制序列的结束位置
+	 * 不兼容IE
+	 */
+	const array1 = ['a', 'b', 'c', 'd', 'e'];
+	console.log("array1.copyWithin(0, 3, 4): ",array1.copyWithin(0, 3, 4));
 	
-	/* 数组实例访问方法 */
-	// 以下方法不会改变调用它们的对象的值,只会返回一个新数组或者期望值
-	console.group('数组实例访问方法');
+	/**
+	 * Array.prototype.fill(value[, start[, end]]);
+	 * 用一个固定值填充数组
+	 * @param {value}	填充的值
+	 * @param {start}	开始填充值的起始位置
+	 * @param {end}		填充值的结束位置
+	 * 不兼容IE
+	 */
+	console.log("array1.fill(1, 2, 4): ",array1.fill(1, 2, 4));
+	
+	/**
+	 * Array.prototype.pop()
+	 * 删除数组的最后一个元素,并返回该元素
+	 */
+	
+	/**
+	 * Array.prototype.push()
+	 * 在数组末尾添加指定元素,并返回数组的新长度
+	 */
+	
+	/**
+	 * Array.prototype.reverse()
+	 * 颠倒数组
+	 */
+	
+	/**
+	 * Array.prototype.shift()
+	 * 删除数组的第一个元素,返回这个元素
+	 */
+	
+	/**
+	 * Array.prototype.unshift()
+	 * 从数组开头添加元素,并返回新数组长度
+	 */
+	
+	/**
+	 * Array.prototype.sort([compareFunction])
+	 * 对数组进行排序,并返回新数组
+	 * @param {compareFunction(a, b)]} 用来指定按某种顺序进行排序的函数,省略则按unicode位点排序
+	 * a、b是将要进行比较的两个元素
+	 * - (a, b) < 0, a会被排列到b之前
+	 * - (a, b) = 0, a、b位置不变
+	 * - (a, b) > 0, a会被排列到b之后
+	 * @return 排序后的数组
+	 */
+	
+	
+	/**
+	 * Array.prototype.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+	 * 在任意位置给数组添加或删除任意个元素
+	 * @param {start} 修改的开始位置
+	 * @param {deleteCount} 要移除的数组元素
+	 * @param {item1, item2, ...} 从start位置开始,如果不指定,那么只是删除元素
+	 */
+	
+}
+
+/**
+ * 数组实例方法-访问方法
+ * 以下方法不会改变调用它们的对象的值,只会返回一个新数组或者期望值
+ */
+{
+	console.group('数组实例方法-访问方法');
 	
 		/**
 		 * Array.prototype.concat()
@@ -218,5 +296,4 @@
 		
 	
 	console.groupEnd();
-	
 }
