@@ -279,18 +279,50 @@
 		console.groupEnd();
 		
 		/**
-		 * Array.prototype.join()
-		 * @description 连接所有数组元素组成一个字符串
-		 * @param 
+		 * Array.prototype.includes(valueToFind[, fromIndex])
+		 * @description 判断当前数组是否包含某指定的值
+		 * @param {valueToFind} 需要查找的元素值
+		 * @param {fromIndex} 从索引处开始查找
+		 * @return true:包含 false:不包含
 		 */
-		console.group('Array.prototype.join()');
-		
+		console.group('');
+			let pets = ['cat', 'dog', 'bat'];
+			console.log("pets.includes('cat'): ",pets.includes('cat'));
+			console.log("pets.includes('cat1'): ",pets.includes('cat1'));
 		console.groupEnd();
 		
 		/**
-		 * Array.prototype.join()
+		 * Array.prototype.join([separator])
+		 * @description 连接所有数组元素组成一个字符串
+		 * @param {separator} 指定一个字符串来分隔数组的每个元素
+		 * @return 返回生成数组
 		 */
-		console.group('访问方法');
+		console.group('Array.prototype.join()');
+			var a = ['Wind', 'Rain', 'Fire'];
+			console.log("a.join(' '): ",a.join(' '));
+			console.log("a.join(','): ",a.join(','));
+		console.groupEnd();
+		
+		/**
+		 * Array.prototype.slice([begin[, end]])
+		 * @description 抽取当前数组中的一段元素组合成一个新数组。
+		 * @param {begin} 开始提取的索引位置
+		 * @param {end} 结束提取的索引位置
+		 * @return 返回提取后的新数组
+		 * 
+		 * 应用场景:
+		 * 	可以将一个类数组的对象集合转换成新数组
+		 */
+		console.group('Array.prototype.slice()');
+			const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+			console.log("animals.slice(1, 3): ",animals.slice(1, 3));
+		console.groupEnd();
+		
+		/**
+		 * Array.prototype.toSource()
+		 * @description 返回一个表示当前数组字面量的字符串。
+		 */
+		console.group('Array.prototype.toSource()');
 		
 		console.groupEnd();
 		
