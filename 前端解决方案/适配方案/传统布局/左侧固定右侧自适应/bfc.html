@@ -1,0 +1,34 @@
+<!-- 
+	创建(块级格式上下文)bfc的方式
+	- 1.overflow不为visible的元素
+	- 2.display: flow-root; 父级使用,子级所有内容都会参与bfc
+ -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			html, body{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.left{
+				background: #42B983;
+				width: 150px;
+				float: left;
+			}    
+			
+			.right{
+				overflow: auto;
+				background: #2C3E50;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="left">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+		<div class="right">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+	</body>
+</html>
