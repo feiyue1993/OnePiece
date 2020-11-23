@@ -1,0 +1,90 @@
+<!-- 
+	@author: feiyue
+	@description: 测试多v-model绑定
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+	
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试多v-model绑定</title>
+	</head>
+	<body>
+		<div id="app">
+			<my-component-a v-model.capitalize="testa"></my-component-a>
+			
+			<my-component-b v-model:foo.capitalize="testb"></my-component-b>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				components: {
+					'my-component-a': {
+						template: `
+							<input :value="modelValue" @input="emitValue" />
+						`,
+						props: {
+							modelValue: String,
+							modelModifiers: {
+								default: ()=>({})
+							}
+						},
+						created: function(){
+							let value = this.modelValue;
+							if(this.modelModifiers.capitalize){
+								value = value.charAt(0).toUpperCase() + value.slice(1);
+							}
+							this.$emit('update:modelValue', value);
+						},
+						methods: {
+							emitValue: function(e){
+								let value = e.target.value;
+								if(this.modelModifiers.capitalize){
+									value = value.charAt(0).toUpperCase() + value.slice(1);
+								}
+								this.$emit('update:modelValue', value);
+							}
+						}
+					},
+					'my-component-b': {
+						template: `
+							<input :value="foo" @input="emitValue" />
+						`,
+						props: {
+							foo: String,
+							fooModifiers: {
+								default: ()=>({})
+							}
+						},
+						created: function(){
+							let value = this.foo;
+							if(this.fooModifiers.capitalize){
+								value = value.charAt(0).toUpperCase() + value.slice(1);
+							}
+							this.$emit('update:foo', value);
+						},
+						methods: {
+							emitValue: function(e){
+								let value = e.target.value;
+								if(this.fooModifiers.capitalize){
+									value = value.charAt(0).toUpperCase() + value.slice(1);
+								}
+								this.$emit('update:foo', value);
+							}
+						}
+					}
+				},
+				data: function(){
+					return {
+						testa: 'testa',
+						testb: 'testb',
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>

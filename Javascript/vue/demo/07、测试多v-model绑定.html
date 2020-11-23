@@ -1,0 +1,44 @@
+<!-- 
+	@author: feiyue
+	@description: 测试多v-model绑定
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+	
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试多v-model绑定</title>
+	</head>
+	<body>
+		<div id="app">
+			{{firstname}} <br>
+			{{lastname}} <br>
+			<user-name v-model:first-name="firstname" v-model:last-name="lastname"></user-name>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				components: {
+					'user-name': {
+						inheritAttrs: false,
+						template: `
+							<input :value="firstName" @input="$emit('update:firstName', $event.target.value)"/><br/>
+							<input :value="lastName" @input="$emit('update:lastName', $event.target.value)"/>
+						`,
+						props: ['firstName', 'lastName']
+					}
+				},
+				data: function(){
+					return {
+						firstname: 'firstname',
+						lastname: 'lastname'
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>

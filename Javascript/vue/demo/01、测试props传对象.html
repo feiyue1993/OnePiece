@@ -1,0 +1,49 @@
+<!-- 
+	@author: feiyue
+	@description: 测试vue动态传对象
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试vue动态传对象</title>
+	</head>
+	<body>
+		<div id="app">
+			<blog-post :="post"></blog-post>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				data: function(){
+					return {
+						post: {
+							id: 1,
+							title: 'title'
+						}
+					}
+				},
+				components: {
+					'blog-post': {
+						template: `<div>
+							<div>{{id}}</div>
+							<div>{{title}}</div>
+						</div>`,
+						props: {
+							title: {
+								type: String,
+							},
+							id: {
+								type: Number
+							}
+						}
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>

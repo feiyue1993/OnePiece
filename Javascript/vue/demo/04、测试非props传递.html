@@ -1,0 +1,40 @@
+<!-- 
+	@author: feiyue
+	@description: 测试非props属性传递
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+	change 事件监听器从父组件传递到子组件，它将在原生 select 的 change 事件上触发
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试非props属性传递</title>
+	</head>
+	<body>
+		<div id="app">
+			<date-picker @change="showChange"></date-picker>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				components: {
+					'date-picker': {
+						template: `<select>
+				  <option value="1">Yesterday</option>
+				  <option value="2">Today</option>
+				  <option value="3">Tomorrow</option>
+				</select>`
+					}
+				},
+				methods: {
+					showChange(){
+						console.log('showChange');
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>

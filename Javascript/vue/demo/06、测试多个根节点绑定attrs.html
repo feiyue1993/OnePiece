@@ -1,0 +1,41 @@
+<!-- 
+	@author: feiyue
+	@description: 测试将非prop属性应用与根组件之外的元素
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+	
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试将非prop属性应用与根组件之外的元素</title>
+	</head>
+	<body>
+		<div id="app">
+			<custom data-test="test" @change="showChange"></custom>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				components: {
+					'custom': {
+						inheritAttrs: false,
+						template: `
+							<header>header</header>
+							<main :="$attrs">main</main>
+							<footer>footer</footer>
+						`
+					}
+				},
+				methods: {
+					showChange: function(){
+						console.log("showChange: ",showChange);
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!-- 
+	@author: feiyue
+	@description: 测试props单向数据流
+	@date: 2020-11-20 19:38
+	@version: 1.0.0
+	
+	1.传入prop,并作为data的初始值
+	2.传入prop后,对prop进行转换
+	3.在子组件中改变对象的值,会影响父组件中该对象的值(无效果)
+ -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试props单向数据流</title>
+	</head>
+	<body>
+		<div id="app">
+			<blog-post1 :id="post.id" :title="post.title"></blog-post1>
+			<blog-post2 :id="post.id" :title="post.title"></blog-post2>
+			<blog-post3 :post="post"></blog-post3>
+		</div>
+		<script src="lib/vue3.js"></script>
+		<script>
+			const app = Vue.createApp({
+				data: function(){
+					return {
+						post: {
+							id: 1,
+							title: 'title'
+						}
+					}
+				},
+				components: {
+					'blog-post1': {
+						template: `<div>
+							<div>{{idInData}}</div>
+							<div>{{titleInData}}</div>
+						</div>`,
+						props: {
+							title: {
+								type: String,
+							},
+							id: {
+								type: Number
+							}
+						},
+						data: function(){
+							return {
+								titleInData: this.title,
+								idInData: this.id
+							}
+						}
+					},
+					
+					'blog-post2': {
+						template: `<div>
+							<div>{{idInData}}</div>
+							<div>{{titleInData}}</div>
+						</div>`,
+						props: {
+							title: {
+								type: String,
+							},
+							id: {
+								type: Number
+							}
+						},
+						data: function(){
+							return {
+								titleInData: this.title+'convert',
+								idInData: this.id+'convert'
+							}
+						}
+					},
+					
+					'blog-post3': {
+						template: `<div>
+							<input v-model="postInData.id" />
+							<input v-model="postInData.title" />
+							{{postInData}}
+						</div>`,
+						props: {
+							post: {
+								type: Object
+							}
+						},
+						data: function(){
+							return {
+								postInData: this.post
+							}
+						}
+					}
+				}
+			});
+			
+			app.mount('#app');
+		</script>
+	</body>
+</html>
