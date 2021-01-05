@@ -1,0 +1,53 @@
+<!--
+    @author: Elicks
+    @description: button-border-animation
+    @date: 2021-01-05 13:30:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button-border-animation</title>
+    <style>
+        .animated-border-button{
+            position: relative;
+            background: #000;
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 12px 40px 10px;
+        }
+
+        .animated-border-button:before,
+        .animated-border-button:after{
+            position: absolute;
+            content: '';
+            height: 0;
+            border: 0px solid transparent;
+            width: 0px;
+            transition: all .3s;
+        }
+
+        .animated-border-button:before{
+            border-top: 2px solid #000;
+            top: -4px;
+            left: 0;
+        }
+
+        .animated-border-button:after{
+            border-bottom: 2px solid #000;
+            bottom: -4px;
+            right: 0;
+        }
+
+        .animated-border-button:hover:before,
+        .animated-border-button:hover:after{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<button class="animated-border-button">Submit</button>
+</body>
+</html>

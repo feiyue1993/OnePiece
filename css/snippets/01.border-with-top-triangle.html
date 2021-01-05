@@ -1,8 +1,13 @@
+<!--
+    @author: Elicks
+    @description: border-with-top-triangle
+    @date: 2021-01-05 08:38:59
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>border-with-top-triangle</title>
     <style>
         .container{
             position: relative;
@@ -15,14 +20,22 @@
         .container:before, .container:after{
             content: '';
             position: absolute;
+            border: 11px solid transparent;
+            border-bottom-color: #ddd;
+            bottom: 100%;
+            left: 19px;
+        }
 
-
+        .container:after{
+            left: 20px;
+            border: 10px solid transparent;
+            border-bottom-color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        Border with top triangle2
+        Border with top triangle
     </div>
 </body>
 </html>
