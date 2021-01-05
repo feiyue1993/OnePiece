@@ -1,0 +1,49 @@
+<!--
+    @author: Elicks
+    @description: counter
+    @date: 2021-01-05 16:22:15
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            counter-reset: counter;
+        }
+
+        li:before {
+            counter-increment: counter;
+            content: counters(counter, '.') ' ';
+        }
+
+        body{
+            counter-reset: section;
+        }
+
+        h3:before{
+            counter-increment: section;
+            content: "Section " counter(section) ": ";
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>List item</li>
+    <li>List item</li>
+    <li>
+        List item
+        <ul>
+            <li>List item</li>
+            <li>List item</li>
+            <li>List item</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>Introduction</h3>
+<h3>Body</h3>
+<h3>Conclusion</h3>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!--
+    @author: Elicks
+    @description: constant-width-to-height 响应式宽高缩放
+    @date: 2021-01-05 14:51:47
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constant-width-to-height</title>
+    <style>
+        .constant-width-to-height-ratio{
+            position: relative;
+            width: 50%;
+            background: #333;
+        }
+
+        .constant-width-to-height-ratio:before{
+            content: '';
+            padding-top: 100%;
+            float: left;
+        }
+
+        .constant-width-to-height-ratio:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="constant-width-to-height-ratio">
+</div>
+</body>
+</html>

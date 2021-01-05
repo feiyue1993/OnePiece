@@ -1,0 +1,42 @@
+<!--
+    @author: Elicks
+    @description: custom-scrollbar
+    @date: 2021-01-05 21:34:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>custom-scrollbar</title>
+    <style>
+        .custom-scrollbar{
+            height: 70px;
+            overflow-y: scroll;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar{
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track{
+            background: #2C3E50;
+            border-radius: 12px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb{
+            background: #fff;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="custom-scrollbar">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+        Iure id exercitationem nulla qui repellat laborum vitae, <br />
+        molestias tempora velit natus. Quas, assumenda nisi. <br />
+        Quisquam enim qui iure, consequatur velit sit?
+    </p>
+</div>
+</body>
+</html>
